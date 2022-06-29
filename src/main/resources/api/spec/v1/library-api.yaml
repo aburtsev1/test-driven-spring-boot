@@ -28,6 +28,35 @@ paths:
           example: Josh Bloch
           schema:
             type: string
+    post:
+      tags:
+        - books
+      summary: Add new books
+      operationId: addBooks
+      responses:
+        '200':
+          description: List of added books is returned
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Books"
+      parameters:
+        - name: author
+          in: query
+          description: Author name filter
+          allowEmptyValue: false
+          required: true
+          example: Josh Bloch
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Book name filter
+          allowEmptyValue: false
+          required: true
+          example: Effective Java
+          schema:
+            type: string
 components:
   schemas:
     BookDto:
